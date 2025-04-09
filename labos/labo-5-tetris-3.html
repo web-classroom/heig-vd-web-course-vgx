@@ -97,7 +97,7 @@
     <main>
 <header id="title-block-header">
     <nav>
-        <a href="/"><i class="fa fa-angle-left"></i> Back</a>
+        <a href="../"><i class="fa fa-angle-left"></i> Back</a>
       </nav>
 <h1 class="title">Labo 5 - Tetris 3</h1>
 </header>
@@ -135,18 +135,11 @@ id="toc-installation-et-lancement">Installation et lancement</a></li>
 réaliser</a></li>
 </ul>
 </nav>
-<!-- # Changelog
-
-| Date  | Changement                                                                                                          |
-| ----- | ------------------------------------------------------------------------------------------------------------------- |
-| 02.11 | Précisions sur comportement lorsqu'un player quitte la partie, [ici](#change_remove_player), [ici](#change_remove_player2), et [là](#change_remove_player3).                         |
-| 04.11 | Extension de deadline : 14 Novembre |
- -->
 <h1 id="informations-générales">Informations Générales</h1>
 <ul>
-<li><strong>Date du rendu :</strong> Mardi 14 Novembre, 13:15 CEST</li>
+<li><strong>Date du rendu :</strong> Voir dans GitHub Classroom</li>
 <li><strong>Groupes</strong> : À réaliser seul ou à deux, en reprenant
-de préférence les groupes du labo 1.</li>
+de préférence les groupes du labo Tetris 1 et 2.</li>
 <li><strong>Plagiat</strong> : En cas de copie manifeste, vous y serez
 confrontés, vous obtiendrez la note de 1, et l’incident sera reporté au
 responsable de la filière, avec un risque d’échec critique immédiat au
@@ -163,7 +156,7 @@ vous ferez de l’IA générative)</em></li>
 </ul>
 <h1 id="lien-avec-le-précédent-labo">Lien avec le précédent labo</h1>
 <p>Ce labo est une suite du second labo sur Tetris. Toutes les
-informations données dans <a href="./labo-3-tetris-2.md">l’énoncé du
+informations données dans <a href="./labo-3-tetris-2.html">l’énoncé du
 précédent labo</a> restent donc valables pour celui-ci.</p>
 <p>Au moment de rejoindre ce nouvel assignment sur Github Classroom, un
 nouveau repo sera créé. Vous êtes libres de reprendre, ou non, les
@@ -205,8 +198,8 @@ class="math inline">5 * <code>scorePerLine</code> − 13</span>, donc
 <span class="math inline">37</span> si <code>scorePerLine</code> vaut
 10.</p>
 <p>Il vous est donc demandé de compléter les fonctions
-<code>getBlocksPerPlayer</code> dans <code>gameMap.js</code>, et
-<code>getTotalScores</code> dans <code>game.js</code>, qui seront
+<code>getBlocksPerPlayer</code> dans <code>placedShapesGrid.js</code>,
+et <code>getTotalScores</code> dans <code>game.js</code>, qui seront
 utilisées pour calculer les scores totaux quand nécessaire. La classe
 <code>PlayerInfo</code> a aussi été complétée par une propriété
 <code>clearedLines</code> que vous devrez maintenir à jour tout au long
@@ -220,7 +213,7 @@ class="math inline">−13</span>.</p>
 <h3 id="affichage">Affichage</h3>
 <p>Il est demandé que l’état actuel des scores soit affiché par chaque
 client à côté du canvas. Nous vous fournissons dans les fichiers
-<code>index.html</code> et <code>style.css</code> un point de départ
+<code>index.html</code> et <code>style.css</code> comme point de départ
 pour cela, que vous pouvez bien entendu modifier et compléter pour
 obtenir l’affichage que vous souhaitez. Les seules contraintes sont que
 les scores de chaque joueur ou joueuse doivent être affichés clairement
@@ -308,19 +301,20 @@ listons ici les classes correspondantes à compléter dans
 liées à un joueur, ou à l’apparition d’un nouveau joueur, ce message
 devra être envoyé aux clients avec la nouvelle valeur de
 <code>PlayerInfo</code> associée. Notez qu’il ne s’agit pas de
-l’approche la plus efficace en termes de couts de communication, puisque
+l’approche la plus efficace en termes de coûts de communication, puisque
 cela implique d’envoyer l’intégralité de la classe
 <code>PlayerInfo</code> aux clients même si l’évolution ne concerne que
 la position de sa shape, ou bien le nombre de lignes complétées, mais
 nous avons fait ce choix dans un but de simplicité
 d’implémentation.</li>
 <li><code>RemovePlayerMessage</code> informe un client de la suppression
-d’un joueur, ce qui peut arriver lorsqu’un client ferme sa connexion au
-serveur.</li>
-<li><code>UpdateMapMessage</code> permet l’envoi d’une
-<code>GameMap</code> au client. À chaque modification de la game map,
-par exemple lorsqu’une pièce est “dropped”, un tel message devra être
-envoyé aux clients pour les informer du nouvel état de la carte.</li>
+d’un joueur, ce qui peut arriver lorsqu’un (autre) client ferme sa
+connexion au serveur.</li>
+<li><code>UpdateGridMessage</code> permet l’envoi d’une
+<code>PlacedShapesGrid</code> au client. À chaque modification du grid,
+par exemple lorsqu’une pièce est “slammed”, un tel message devra être
+envoyé aux clients pour les informer du nouvel état de la carte
+(grid).</li>
 <li><code>GameOverMessage</code> notifie le client que le jeu est
 terminé.</li>
 <li><code>JoinMessage</code> doit être envoyé à chaque nouveau client au
@@ -333,10 +327,13 @@ rejoignant la partie.</li>
 nécessaire de les encoder et les décoder. Nous choisissons le format
 JSON pour cela, et vous demandons de compléter la classe
 <code>MessageCodec</code> qui en est responsable. Elle offre deux
-méthodes statiques : - <code>encode</code> qui prend un message et
-l’encode en une chaine de caractères respectant le format JSON, et -
-<code>decode</code> qui prend une chaine de caractères respectant le
-format JSON et le décode en une instance de message.</p>
+méthodes statiques :</p>
+<ul>
+<li><code>encode</code> qui prend un message et l’encode en une chaine
+de caractères respectant le format JSON, et</li>
+<li><code>decode</code> qui prend une chaine de caractères respectant le
+format JSON et le décode en une instance de message.</li>
+</ul>
 <p>Notez que <code>decode</code> produit bien une <em>instance</em> de
 message, et non un simple objet obtenu avec <code>JSON.parse</code>.
 Cela est nécessaire pour récupérer les informations telles que le type
@@ -346,33 +343,35 @@ inclurez dans le JSON, et à la manière de décoder un JSON en une
 instance de la bonne classe.</p>
 <p>Notez également qu’un problème similaire se posera avec certaines
 sous-classes de <code>Message</code>, par exemple
-<code>SetPlayerMessage</code> et <code>UpdateMapMessage</code>. Ces deux
-messages offrent des méthodes qui doivent retourner des instances de
-classes telles que <code>PlayerInfo</code> ou <code>GameMap</code>, et
-non de simples objets. Si j’encode un message de type
-<code>SetPlayerMessage</code> puis le décode, je dois donc pouvoir
-appeler <code>getPlayer()</code> sur la valeur retournée et obtenir une
-instance de <code>PlayerInfo</code>, puis appeler
-<code>getShape()</code> sur celle-ci pour obtenir une instance de
-<code>Shape</code>.</p>
+<code>SetPlayerMessage</code> et <code>UpdateGridMessage</code>. Ces
+deux messages offrent des méthodes qui doivent retourner des instances
+de classes telles que <code>PlayerInfo</code> ou
+<code>PlacedShapesGrid</code>, et non de simples objets. Si j’encode un
+message de type <code>SetPlayerMessage</code> puis le décode, je dois
+donc pouvoir appeler <code>getPlayer()</code> sur la valeur retournée et
+obtenir une instance de <code>PlayerInfo</code>, puis appeler
+<code>getFallingShape()</code> sur celle-ci pour obtenir une instance de
+<code>FallingShape</code>.</p>
 <h3 id="affichage-1">Affichage</h3>
 <p>Nous avons déjà parlé de la nécessité d’afficher les scores de chaque
 player à côté du canvas. L’affichage doit par ailleurs être modifié ou
-complété des deux manières suivantes. - À côté du canvas, l’id qui nous
-a été assigné doit être affiché clairement (par exemple,
-<code>"You are player &lt;id&gt;"</code>). Une nouvelle méthode
-<code>setPlayerId</code> a été ajoutée au renderer pour l’informer de
-l’id qui lui a été assigné, tel que fourni par le message
-<code>JoinMessage</code> du serveur. - L’affichage des pièces tombantes
-doit être tel que les pièces qui appartiennent à d’autres joueurs soient
-partiellement transparentes, et affichées <em>sous</em> la notre. Afin
-de faciliter l’affichage conditionnellement transparent des pièces, nous
-avons modifié le tableau <code>shapeColors</code> dans
-<code>constants.js</code> pour que la composante alpha de la valeur
-<code>rgba</code> de chaque élément soit <code>x</code>, et non plus
-<code>1</code>. Ceci devrait vous permettre d’utiliser une Regexp pour
-modifier la transparence des pièces en fonction de l’id auquel elles
-appartiennent.</p>
+complété des deux manières suivantes.</p>
+<ul>
+<li>À côté du canvas, l’id qui nous a été assigné doit être affiché
+clairement (par exemple, <code>"You are player &lt;id&gt;"</code>). Une
+nouvelle méthode <code>setPlayerId</code> a été ajoutée au renderer pour
+l’informer de l’id qui lui a été assigné, tel que fourni par le message
+<code>JoinMessage</code> du serveur.</li>
+<li>L’affichage des pièces tombantes doit être tel que les pièces qui
+appartiennent à d’autres joueurs soient partiellement transparentes, et
+affichées <em>sous</em> la notre (sur l'axe z). Afin de faciliter l’affichage
+conditionnellement transparent des pièces, nous avons modifié le tableau
+<code>shapeColors</code> dans <code>constants.js</code> pour que la
+composante alpha de la valeur <code>rgba</code> de chaque élément soit
+<code>x</code>, et non plus <code>1</code>. Ceci devrait vous permettre
+d’utiliser une Regexp pour modifier la transparence des pièces en
+fonction de l’id auquel elles appartiennent.</li>
+</ul>
 <p>Nous mentionnons ici que la couleur associée à un joueur peut être
 choisie arbitrairement, mais doit être la même sur tous les clients : si
 mes pièces m’apparaissent rouge, alors elles doivent apparaitre rouge
@@ -388,7 +387,7 @@ ceci.</p>
 <p>Du côté du serveur, celui-ci doit réinitialiser ses données,
 c’est-à-dire ses joueurs et la carte. Nous vous demandons d’ailleurs,
 dans ce but, de compléter l’implémentation de la méthode
-<code>clear</code> de <code>GameMap</code>.</p>
+<code>clear</code> de <code>PlacedShapesGrid</code>.</p>
 <h2 id="tests">Tests</h2>
 <p>Les tests vous sont fournis pour ce labo. Nous en avons ajouté pour
 les nouvelles fonctionnalités, et en avons modifié certains pour tester
