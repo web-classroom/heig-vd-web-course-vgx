@@ -3,7 +3,6 @@ title: Labo final - React Libre
 css: style.css
 ---
 
-
 # Présentation finale
 
 ## Durée de votre présentation
@@ -20,7 +19,7 @@ contenu à présenter.
 | 3                  | 12 minutes               |
 | 4                  | 15 minutes               |
 
-<!-- 
+<!--
 ## Ordre de passage
 
 L'ordre de passage a été généré aléatoirement. Il est donné ici, avec les
@@ -74,11 +73,10 @@ votre projet devant le reste de la classe, afin de partager vos découvertes.
 
 ## Theme
 
-Le thème est complètement libre. Toutes les
-personnes sont très bienvenues à partir du Tetris fait en cours, afin d'avoir un
-point de départ déjà en place, mais vous pouvez bien sûr commencer un autre
-projet de zéro. Remarquez simplement la charge supplémentaire que représente le
-fait de repartir de zéro.
+Le thème est complètement libre. Toutes les personnes sont très bienvenues à
+partir du Tetris fait en cours, afin d'avoir un point de départ déjà en place,
+mais vous pouvez bien sûr commencer un autre projet de zéro. Remarquez
+simplement la charge supplémentaire que représente le fait de repartir de zéro.
 
 # Timeline
 
@@ -91,19 +89,19 @@ La timeline sera la suivante.
   [Gamepad API](https://developer.mozilla.org/en-US/docs/Games/Techniques/Controls_Gamepad_API),
   ou si vous voulez faire un Tetris en AR, vous devrez trouver une librairie
   vous le permettant. Mettez ces informations
-  [Ici](ADD URL here).
+  [Ici](https://hessoit-my.sharepoint.com/:x:/g/personal/vincent_guidoux1_hes-so_ch/EZd2NJTIaphEhfs7oggqyigBCOua9HUiuygy7GPnrQcaGg?e=iAjJth&nav=MTVfe0U4OTI0MTFELUZEMkQtNDBCNS1CRUQ2LTkwODA1NTBDQzI2OH0).
 
 - Le scope du projet doit refléter la taille de l'équipe.
 
 - Nous validerons ensuite votre idée, si celle-ci nous semble représenter une
-    charge de travail réaliste et suffisante.
+  charge de travail réaliste et suffisante.
 
 - **Semaine du 09 juin** : Rendu et présentation de votre projet. Vous devrez
   avoir terminé l’implémentation des améliorations que vous avez proposées, et
   être prêts à les présenter.
 
-Nous vous encourageons vivement à régulièrement venir nous voir pour discuter 
-de l'état d'avancement de votre projet.
+Nous vous encourageons vivement à régulièrement venir nous voir pour discuter de
+l'état d'avancement de votre projet.
 
 # Évaluation
 
@@ -143,8 +141,8 @@ Critères de notation :
 - Le projet fonctionne (2pts) : votre projet est fonctionnel et ne contient pas
   de bugs majeurs.
 - Utilisation des bonnes pratiques (2pts) : qualité du code (vous devez utiliser
-- les bonnes pratiques recommandées par les technologies que vous
-  avez utilisées et éventuellement celles vues en cours).
+- les bonnes pratiques recommandées par les technologies que vous avez utilisées
+  et éventuellement celles vues en cours).
 - Cahier des charges et charge de travail (2pts) : vous devez respecter les
   améliorations que vous avez proposées, et montrer que vous avez travaillé sur
   celles-ci tout au long du temps imparti (et pas juste la veille).
