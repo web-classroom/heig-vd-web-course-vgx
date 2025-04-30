@@ -85,23 +85,25 @@ vulnérabilités</a></li>
       </nav>
        <h1 id="labo-7---web-security">Labo 7 - Web Security</h1>
 <h1 id="informations-générales">Informations Générales</h1>
+<p><strong>WEB-B &amp; WEB-C</strong> :</p>
 <ul>
-<li><strong>Date du rendu des flags :</strong> Mardi 5 Décembre, 18:05
-CEST</li>
-<li><strong>Date du rendu de la correction des failles :</strong> Mardi
-12 Décembre, 13:15 CEST</li>
+<li><strong>Date du rendu des flags &amp;&amp; de la correction des
+failles :</strong> Mercredi 7 avril 2025, 23:59 CEST</li>
+</ul>
+<p><strong>WEB-A</strong> :</p>
+<ul>
+<li><strong>Date du rendu des flags &amp;&amp; de la correction des
+failles :</strong> Vendredi 9 avril 2025, 23:59 CEST</li>
 </ul>
 <p>Dans ce labo, nous vous donnons accès à un site web dont nous vous
 demandons d’exploiter les vulnérabilités. Il s’agit d’une app web de
 chat privé en temps réel très basique, baptisée <a
-href="185.143.102.102:8080">ChatsApp</a>.</p>
+href="http://tweb.iict-heig-vd.in/login">ChatsApp</a>, accessible
+uniquement sur le VPN ou sur le réseau de l’école.</p>
 <h2 id="connexion-au-service">Connexion au service</h2>
-<p>Ce service est hébergé avec AWS Free Tier et sans nom de domaine
-assigné. Il est donc normal de ne pouvoir s’y connecter que par HTTP, et
-que l’URL se termine en <code>.compute.amazonaws.com</code>.</p>
 <p>Vous devez avoir reçu par mail deux identifiants personnels pour vous
-connecter à <a href="185.143.102.102:8080">ChatsApp</a>. Ils
-correspondent aux deux parties de ce labo.</p>
+connecter à <a href="http://tweb.iict-heig-vd.in/login">ChatsApp</a>.
+Ils correspondent aux deux parties de ce labo.</p>
 <h2 id="objectifs">Objectifs</h2>
 <p>Ce labo est divisé en 2 phases. La première consiste à trouver 6
 flags cachés dans ChatsApp. La seconde vous demandera de corriger les
@@ -130,7 +132,7 @@ message que Nova a envoyé à Echo.</li>
 <li>La dernière partie n’a pas encore été partagée, mais vos compétences
 en Social Engineering vous permettent de savoir qu’elle sera transmise
 si Echo reçoit le message exact suivant :
-<code>gimme the rest of the codes pls</code></li>
+<code>request for last part of access sequence</code></li>
 </ul>
 <h3 id="version-2">Version 2</h3>
 <p>À la suite d’une fuite de données, une nouvelle version de ChatsApp a
@@ -159,14 +161,17 @@ attention à ce que les messages d’erreur en cas de problème de login
 sont tous les mêmes, afin de ne divulguer aucune information (par
 exemple le fait qu’un utilisateur est déjà inscrit)</p>
 <ul>
-<li>Le premier flag pourra être obtenu si vous neutralisez Echo : il ne
-doit plus pouvoir rester connecté à son compte. Il vous faudra le forcer
-à être automatiquement déconnecté.</li>
-<li>Le second flag est caché dans une conversation entre Echo et une
-autre figure discrète du réseau.</li>
-<li>Le dernier flag demande d’identifier quels noms parmi une liste
-correspondent à des comptes réels sur ChatsApp. Vous devrez soumettre
-cette sous-liste.</li>
+<li>Le premier flag pourra être obtenu de la part de Nova si vous lui
+rendez service en rendant impossible pour Echo d’utiliser son compte
+ChatsApp. Vous pourrez y parvenir en vous assurant qu’il sera
+systématiquement déconnecté de son compte après chaque connexion,
+l’empêchant ainsi d’utiliser le service.</li>
+<li>Le second flag se trouve au sein d’une conversation qu’Echo a avec
+une autre (parodie de) personnalité connue sur ChatsApp.</li>
+<li>Le dernier flag n’en est pas un : il vous faut découvrir quelles
+autres (parodies de) personnalités ont un compte sur ChatApp. En
+particulier, nous vous demandons de nous dire quel sous-ensemble de la
+liste de noms d’utilisateur suivante ont un compte sur ChatsApp.</li>
 </ul>
 <details open>
 <summary>
@@ -180,7 +185,7 @@ Liste de pseudonymes potentiellement enregistrés sur ChatsApp
 <li><code>jane.doe</code></li>
 <li><code>sam.altman</code></li>
 <li><code>mira.murati</code></li>
-<li><code>olivier.lemer</code></li>
+<li><code>ada.lovelace</code></li>
 </ul>
 </details>
 <p>Notez que ce dernier flag n’est pas personnalisé pour chaque
@@ -213,15 +218,15 @@ mis en place les mesures suivantes :</p>
 historique de conversations ; pensez donc bien à sauvegarder tout flag
 que vous trouvez, ainsi que les inputs ou démarches que vous avez prises
 pour les obtenir.</li>
-<li>Un autre serveur maintient ouvert une page web dans laquelle Elon
-Musk est connecté à ChatsApp, votre conversation ouverte, afin d’activer
+<li>Un autre serveur maintient ouvert une page web dans laquelle Echo
+est connecté à ChatsApp, votre conversation ouverte, afin d’activer
 toute attaque nécessitant une exécution de JS chez la victime. Cette
 page est rechargée toutes les 30 secondes, ± 5s.</li>
 <li>Un bouton <code>Reset</code> dans l’interface de ChatsApp vous
-permet de réinitialiser tous les messages envoyés entre vous, Elon, et
-Trump.</li>
+permet de réinitialiser tous les messages envoyés entre vous, Echo, et
+Nova.</li>
 <li>Notez par ailleurs que les autres étudiants communiquent avec
-d’autres “instances” d’Elon et Trump, pour éviter toute
+d’autres “instances” d’Echo et Nova, pour éviter toute
 interférence.</li>
 </ul>
 <h1 id="rendu">Rendu</h1>
