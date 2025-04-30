@@ -104,7 +104,7 @@ inscrit)
   d'utilisateur suivante ont un compte sur ChatsApp.
 
 <details open>
-<summary>Liste de pseudonymes potentiellement inscrits sur ChatsApp</summary>
+<summary>Liste de pseudonymes potentiellement enregistrés sur ChatsApp</summary>
 
 - `michelle.obama`
 - `barack.obama`
