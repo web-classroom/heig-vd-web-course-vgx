@@ -5,16 +5,22 @@ css: style.css
 
 # Labo 7 - Web Security
 
+## Changelog
+
+| Date  | Changement                                                                                       |
+| ----- | ------------------------------------------------------------------------------------------------ |
+| 02.05 | Reformulation - le troisième flag est bien obtenu en faisant envoyer un message par Echo à Nova. |
+
 # Informations Générales
 
 **WEB-B & WEB-C** :
 
-- **Date du rendu des flags && de la correction des failles :** Mercredi 7 avril
+- **Date du rendu des flags && de la correction des failles :** Mercredi 7 mai
   2025, 23:59 CEST
 
 **WEB-A** :
 
-- **Date du rendu des flags && de la correction des failles :** Vendredi 9 avril
+- **Date du rendu des flags && de la correction des failles :** Vendredi 9 mai
   2025, 23:59 CEST
 
 Dans ce labo, nous vous donnons accès à un site web dont nous vous demandons
@@ -59,8 +65,9 @@ pensée, a été divisé en trois parties.
 - La seconde partie s'y trouve aussi, et est par ailleurs le dernier message que
   Nova a envoyé à Echo.
 - La dernière partie n'a pas encore été partagée, mais vos compétences en Social
-  Engineering vous permettent de savoir qu'elle sera transmise si Echo reçoit le
-  message exact suivant : `request for last part of access sequence`
+  Engineering vous permettent de savoir qu'elle sera envoyée par Nova à Echo, si
+  Echo la lui demande avec le message exact suivant :
+  `request for last part of access sequence`
 
 ### Version 2
 
